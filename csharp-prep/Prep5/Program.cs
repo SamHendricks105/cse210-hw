@@ -2,6 +2,19 @@ using System;
 
 class Program
 {
+    
+    static void Main(string[] args)
+    {
+        display();
+        string name =PromptUserName();
+        int num = PromptUserNumber();
+        int sq = SquareNumber(num);
+        DisplayResult(sq, name);
+
+        
+
+
+    }
     static void display()
     {
         Console.WriteLine("Welcome!");
@@ -20,22 +33,14 @@ class Program
         return Num;
     }
 
-    static double SquareNumber(int Num)
+    static int SquareNumber(int Num)
     {
-        double dNum = Num;
-        double Square = Math.Sqrt(dNum);
+        int sq = Num *Num;
         
-        
-        return Square;
+        return sq;
     }
     static void DisplayResult(double sq, string name)
     {
         Console.WriteLine($"{name}, the square of your number is {sq}");
     }
-    
-    static void Main(string[] args)
-    {
-        
-        display();
-        
-    }
+}
