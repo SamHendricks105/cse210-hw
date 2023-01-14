@@ -118,13 +118,34 @@ class Program
                 Console.Write("Enter your file name:");
                 string filename = Console.ReadLine();
                 string [] lines = System.IO.File.ReadAllLines(filename);
-               
+                
                 foreach(string line in lines)
                 {
                     Console.WriteLine(line);
                 }
-               
                 
+                
+                //..................test
+                // int count=0;
+                // foreach(string line in lines)
+                // {
+                //     Console.WriteLine(line);
+                //     count++;
+                
+                // }
+                // Console.Write(count);
+                // e._date = lines[0];
+                // e._prompt =lines[1];
+                // e._prompt =lines[2];
+                // j._AllEntries.Add(e);
+                
+                // foreach(journalEntry line in j._AllEntries)
+                // {
+                //     Console.WriteLine(line._date);
+                //     Console.WriteLine(line._prompt);
+                //     Console.WriteLine(line._entry);
+                // }
+                //...............................
                 
             
             }
@@ -157,36 +178,3 @@ class Program
 }
 
 
-// The journalEntry class will be used store induvidual enteries.
-public class journalEntry 
-{
-    // member varibles
-    public string _entry= "";
-    public string _date ="";
-    public string _prompt ="";
-
-    //constructor
-    public journalEntry()
-    {
-    }
-
-    // functions
-    
-    // The Get entry function will be used to get a new entry from the user.
-    public int getEntryPrompt()
-       {
-           // A randrom number fro 0-4 will be gerrated to determine the prompt
-            Random ran = new Random();
-            int prom = ran.Next(5);
-           return prom;
-            
-        }
-    
-    public void displayEntry()
-    {
-         Console.WriteLine($"{_date}"); 
-         Console.WriteLine($"{_prompt}"); 
-         Console.WriteLine($"{_entry}");
-    }
-}
-//.....................................................
