@@ -8,6 +8,8 @@ class Program
     {
         // J stores all entries
         Journal j = new Journal();
+        Journal test = new Journal();
+        
         
         
          int getChoice()
@@ -108,44 +110,40 @@ class Program
             //Load
             else if(choice ==3)
             {
-                //tries to remove what is in j.AllEntries
-                for (int c=0; c < j._AllEntries.Count; c++ )
-                {
-                    j._AllEntries.RemoveAt(c);
-                }
+                
 
-
+                // Asks the user for the file location
                 Console.Write("Enter your file name:");
                 string filename = Console.ReadLine();
+                //The user's file is sent to a string called lines
                 string [] lines = System.IO.File.ReadAllLines(filename);
+                // The length of this array is need for the while loop below.
+                // Each entry should be 3 lines. lines[0]= the date, lines[1]= the prompt 
+                // lines[2]= user's entry and so on every lines[0-2]
+                int arrLen = lines.Length;
+                Console.WriteLine($"Length:{arrLen}");
+                //Clears j so it can be replaced with the load file.
+                Journal clear = new Journal();
+                j = clear;
                 
-                foreach(string line in lines)
+                //The loop will load the new list in to the journal class varible test.
+                int count =0;
+                while (count < arrLen -1)
                 {
-                    Console.WriteLine(line);
+                    journalEntry load = new journalEntry();
+                    load._date = lines[count];
+                    load._prompt =lines[count+1];
+                    load._entry =lines[count+2];
+                    test._AllEntries.Add(load);
+                    count +=3;
+                    Console.WriteLine($"Count:{count}");
+                        
                 }
+                j._AllEntries = test._AllEntries;
                 
                 
-                //..................test
-                // int count=0;
-                // foreach(string line in lines)
-                // {
-                //     Console.WriteLine(line);
-                //     count++;
                 
-                // }
-                // Console.Write(count);
-                // e._date = lines[0];
-                // e._prompt =lines[1];
-                // e._prompt =lines[2];
-                // j._AllEntries.Add(e);
                 
-                // foreach(journalEntry line in j._AllEntries)
-                // {
-                //     Console.WriteLine(line._date);
-                //     Console.WriteLine(line._prompt);
-                //     Console.WriteLine(line._entry);
-                // }
-                //...............................
                 
             
             }
