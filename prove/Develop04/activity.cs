@@ -1,8 +1,8 @@
 using System;
 using System.Diagnostics;
 using System.Linq;
-
-class activity 
+using System.Threading;
+class Activity 
 {
     
     protected string activityName, instruction;
@@ -13,15 +13,22 @@ class activity
 
     //constructors 
     
-    public activity()
+    public Activity()
     {
 
     }
-    public activity(string _activityName, string _instruction, int _howLong)
+    public Activity(string _activityName, string _instruction)
     {
         activityName = _activityName;
         instruction =_instruction;
-        howLong = _howLong;
+        
+    }
+
+    public void getHowLong()
+    {
+       Console.Write("How long in seconds would you like to do this exersise: ");
+       string seconds = Console.ReadLine();
+       howLong= int.Parse(seconds);
     }
 
    
@@ -32,10 +39,27 @@ class activity
     {
         Console.WriteLine($"Welcome to the {activityName} Activity,");
         Console.WriteLine(instruction);
-        Console.Write("How long, in seconds, would you like for your session?: ");
     }
 
-    public void getReady(int runTimeSeconds)
+    public void wellDone()
+    {
+        Console.WriteLine("Well Done!");
+        spin(4);
+        
+        // clears the spiner animation
+        Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop - 1);
+        Console.WriteLine();
+        
+        Console.WriteLine($"You have completed another {howLong} seconds of the {activityName} Activity!");
+        spin(4);
+        
+        // clears the spiner animation
+        Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop - 1);
+        Console.WriteLine();
+    }
+    
+    
+    public void spin(int runTimeSeconds)
     {
         Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
@@ -51,7 +75,7 @@ class activity
                 case 3: Console.Write("|"); break; 
             }
             Console.SetCursorPosition(Console.CursorLeft -1, Console.CursorTop);
-            Thread.Sleep(200);
+            Thread.Sleep(300);
         
         
         }

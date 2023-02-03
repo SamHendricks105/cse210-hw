@@ -1,31 +1,71 @@
 using System;
-class breath : activity
+using System.Diagnostics;
+using System.Linq;
+using System.Threading;
+
+class Breath : Activity
 {
     
-    
-    
-    public breath(string _activityName, string _instruction, int _howLong) 
-    : base(_activityName, _instruction, _howLong)
+    // constructors................................... 
+    public Breath(string _activityName, string _instruction) 
+    : base(_activityName, _instruction)
     {
         
     }
-    public void getHowLong()
+    
+    
+    //Methods......................................
+    
+    // The breathIn() and breathOut() functions will be used inside of the 
+    // breathActovity() to time the user's breathing
+    public void breathIn()
     {
-       Console.Write("How long in seconds would you like to do this exersise: ");
-       string seconds = Console.ReadLine();
-       howLong= int.Parse(seconds);
+       int count =5;
+       while (count >=0)
+        {
+            Console.WriteLine($"Breath in.....{count}");
+            Thread.Sleep(1000);
+            Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop - 1);
+            count--;
+        }
+        
     }
-
-    public void displaySeconds()
+    public void breathOut()
     {
-        Console.WriteLine($"You have entered {howLong}");
+       int count =5;
+       while (count >=0)
+        {
+            Console.WriteLine($"Breath out.....{count}");
+            Thread.Sleep(1000);
+            Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop - 1);
+            count--;
+        }
+        
     }
     public void breathActivity()
     {
         
         
+        Console.WriteLine("Get Ready....");
+        spin(3);
+        
+       
+        // the while loop will loop though breathing in and out
+        // the howLong varible obtained from the user in the prorgam 
+        // using getHowLong()
+        Stopwatch stopwatch = new Stopwatch();
+        stopwatch.Start();
+        while( stopwatch.ElapsedMilliseconds / 1000 < howLong)
+        {
+            breathIn();
+            Console.WriteLine();
+            Console.WriteLine();
+            breathOut();
+            Console.WriteLine();
+            Console.WriteLine();
+        }
+        wellDone();
+        
     }
-
-
-
+        
 }

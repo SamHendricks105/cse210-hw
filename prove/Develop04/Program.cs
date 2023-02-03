@@ -21,7 +21,7 @@ class Program
        {
         
         string c;
-            Console.WriteLine("Select your Choice: ");
+            Console.Write("Select your Choice: ");
             c =Console.ReadLine();
             
             if (c != "1" && c != "2" && c != "3" && c != "3" && c != "4")
@@ -39,28 +39,60 @@ class Program
         return choice;
        }
        
+      
+       
+       
+       
        int c =0;
         // instructions................ 
         
-        //breathing activity
-        string breathInstruction = @"This activity will help you relax by walking you through breathing in 
-        and out slowly. Clear your mind and focus on your breathing"; 
+        //Breathing Activity
+        string breathInstruction = 
+        "This activity will help you relax by walking you through breathing in and out slowly."+ 
+        "Clear your mind and focus on your breathing"; 
        
-       
-       
+       //Reflect Activity
+       string reflectInstrction = 
+       "This activty will help you reflect on time in your life"+ 
+       "when you have shown strength and resilince.";
+
+       //Listing Activity 
+       string listingInstruction = " This Activity will help you reflect on the good things in your life by"+
+       "having you list as may things as you can";
+
+      
        while (c !=4)
        {
+           
             menu();
             c=getChoice();
-            
             //breathing activity
             if (c ==1)
             {
-                breath b = new breath("Breathing", breathInstruction, 2);
+                Breath b = new Breath("Breathing", breathInstruction);
+                b.displayWelcome();
                 b.getHowLong();
-                b.displaySeconds();
+                b.breathActivity();
                 
             }
+
+            else if(c==2)
+            {
+                Reflect r = new Reflect("Reflection", reflectInstrction);
+                r.displayWelcome();
+                r.getHowLong();
+                r.reflectActivity();
+
+            }
+
+            else if(c==3)
+            {
+                Listing l = new Listing("Listing", listingInstruction);
+                l.displayWelcome();
+                l.getHowLong();
+                l.listingActivity();
+                
+            } 
        }
 
 
