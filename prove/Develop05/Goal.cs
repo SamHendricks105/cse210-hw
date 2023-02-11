@@ -4,9 +4,6 @@ abstract class Goal
     protected int points;
     public int goalNumber;
     protected string name, discription, symbolComplete;
-
-    public List <SimpleGoal> simpleGoalsList;
-
     protected bool completed = false;
     
     // constructors 
