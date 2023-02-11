@@ -108,18 +108,6 @@ class Program
                         splitLines = line.Split("|");
                     }                
 
-                    foreach(string line in splitLines)
-                    {
-                    Console.WriteLine(line.Length);
-                    }
-                
-               
-
-                foreach(string line in )
-                {
-                    Console.WriteLine(line.Length);
-                }
-                
             }
 
             //5.Record Event.............................................................
