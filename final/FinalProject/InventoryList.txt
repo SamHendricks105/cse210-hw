@@ -1,0 +1,29 @@
+            //Sedan
+            case 1:
+            break;
+
+            //Coupe
+            case 2:
+            break;
+
+            //Converible
+            case 3:
+            break;
+
+            //Van
+            case 4:
+            break;
+            
+            //MiniVan
+            case 5:
+            break;
+
+            //Truck
+            case 6:
+            break;
+
+            //SUV
+            case 7:
+            break;
+Class# , make,     model,      year,       color,    fuelType,    driveType,    numSeats,      numDoors;
+1      , Toyota,   Camery      2016        Blue       Gas          FWD           5              4
