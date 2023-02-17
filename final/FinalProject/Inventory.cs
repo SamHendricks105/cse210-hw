@@ -1,57 +1,84 @@
-
-class Inventory
+class Inventory 
 {
-     
-    List <Vehicle> MainList;
-    
-    public void readInInventory()
+    //Member Varibles 
+    private List <Vehicle> inventoryList;
+
+    //Constructors 
+    public Inventory(List <Vehicle> _inventoryList)
     {
-        //Will Reed the InventoryList.txt file with a list vehicles
-        // and send them to the MainList
+            inventoryList =_inventoryList;
     }
-    
-    
-    
-    public void addToInventory()
+
+    //Methods
+    public void displayAllVehiicles()
     {
-        Console.WriteLine("What is the body style of the vehicle?");
-        int c = int.Parse(Console.ReadLine());
-
-        switch(c)
+        foreach(Vehicle car in inventoryList)
         {
-            //Sedan
+            car.displayVehicleAllSpecs();
+            Console.WriteLine();
+        }
+    }
+   
+   //Used for displaying only the Body Styles that the user is interested in.
+   public void displaySpecificBodyType(int ClassNum)
+   {
+        foreach(Vehicle car in inventoryList)
+        {
+           if(ClassNum == car.getClassNum())
+           {
+                car.displayVehicleAllSpecs();
+                Console.WriteLine();//Space in between Vehicles 
+           }
+        }
+   }
+
+   public void priceRange()
+   {
+        Console.Write("Minimum price: ");
+        int minPrice = int.Parse (Console.ReadLine());
+        Console.Write("Maximum price:");
+        int maxPrice = int.Parse(Console.ReadLine());
+        foreach(Vehicle car in inventoryList)
+        {
+            if(car.getPrice() < maxPrice  && car.getPrice() > minPrice)
+            {
+                car.displayVehicleAllSpecs();
+                 Console.WriteLine();//Space in between Vehicles
+                
+            }
+        }
+
+
+   }
+
+    public void searhBy()
+    {
+        int choice; 
+        Menu m =new Menu();
+        m.displaySearchMenu();
+        choice = m.getUserInputInt(5);
+        switch(choice)
+        {
+            //Body Style
             case 1:
-            break;
-
-            //Coupe
-            case 2:
-            break;
-
-            //Converible
-            case 3:
-            break;
-
-            //Van
-            case 4:
+            m.displayBodyStyles();
+            choice = m.getUserInputInt(7);
+            Console.WriteLine();//Add's blank line to make it prettier 
+            displaySpecificBodyType(choice);
             break;
             
-            //MiniVan
-            case 5:
+            //price
+            case 2:
+            Console.WriteLine();
+            priceRange();
             break;
 
-            //Truck
-            case 6:
-            break;
-
-            //SUV
-            case 7:
-            break;
-
+            
         }
+       
 
     }
 
 
 
 }
-   

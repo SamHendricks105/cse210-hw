@@ -1,29 +1,8 @@
-            //Sedan
-            case 1:
-            break;
-
-            //Coupe
-            case 2:
-            break;
-
-            //Converible
-            case 3:
-            break;
-
-            //Van
-            case 4:
-            break;
-            
-            //MiniVan
-            case 5:
-            break;
-
-            //Truck
-            case 6:
-            break;
-
-            //SUV
-            case 7:
-            break;
-Class# , make,     model,      year,       color,    fuelType,    driveType,    numSeats,      numDoors;
-1      , Toyota,   Camery      2016        Blue       Gas          FWD           5              4
+1,Toyota,Camery,2016,Blue,Gas,FWD,5,4,Automatic,15000
+2,Ford,Mustang,2008,Red,Gas,RWD,4,2,Manual,7000
+3,Triumph,Spitfire,1974,Orange,Gas,RWD,2,2,Manul,5000,Soft Top
+4,Mercedes-Benz,Sprinter,2019,Black,Gas,4WD,12,4,Automatic,40000,319 Cubic Liters
+5,Honda,Odyessey,2005,Green,Gas,FWD,8,4,Autmatic,4500
+6,Rivian,R1T,2022,purple,Electric,4WD,5,4,Automatic,70000,11000,4 Feet 6 Inches
+7,Jeep,Wrangler,1998,Brown,Gas,4WD,5,2,Manual,3000 
+2,Dodge,HellCat,2018,Black,Gas,AWD,4,2,Manual,50000  
